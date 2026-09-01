@@ -111,7 +111,7 @@ cfg.DATA_PATH = "path/to/your/pm25_data.csv"
 
 ```bash
 # Clone the repository
-git clone https://github.com/pts5625/pm25-bangladesh-gdgru.git
+git clone https://github.com/pts5625/pm2.5-bangladesh-gdgru.git
 cd pm25-bangladesh-gdgru
 
 # Create a virtual environment (recommended)
@@ -163,8 +163,8 @@ results/
 │   └── baselines/                         (one .npz per baseline)
 ├── checkpoints/                            (model weights, per seed)
 ├── figures/                                (Fig. 4–12 as .png / .pdf)
-├── table_iv_with_ci.csv                    (Table 4)
-├── table_v_significance.csv                (Table 5)
+├── table_4_with_ci.csv                    (Table 4)
+├── table_5_significance.csv                (Table 5)
 ├── table_s3_graph_comparison.csv           (Table S3)
 ├── table_s5_lookback_ablation.csv          (Table S5)
 ├── feature_importance_grad_input.csv
