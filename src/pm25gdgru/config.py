@@ -23,8 +23,6 @@ class Config:
     LAT_COL = "lat"
     LON_COL = "lon"
 
-
-
     # ---- Temporal windows ----------------------------------------------------
     LOOKBACK = 21
     HORIZON = 3
@@ -59,10 +57,9 @@ class Config:
     MIN_DELTA = 1e-4
     VAL_SMOOTH = 0.3
     NOISE_STD = 0.15
-    MIXUP_ALPHA = 0.3
     MAPE_FLOOR = 5.0
 
-    # Fixed per-horizon loss weights: shorter horizons are weighted more
+    # Fixed per-horizon loss weights: shorter horizons are weighted more. The weights were calculated independently from the data and kept fixed.
     # heavily, matching the manuscript's weighted Huber loss (Eq. 25).
     HORIZON_WEIGHTS = [1.4, 1.2, 1.0]
 

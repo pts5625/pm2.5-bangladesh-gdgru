@@ -198,11 +198,3 @@ class STDataset(torch.utils.data.Dataset):
         return self.X[i], self.y[i]
 
 
-def mixup_batch(X: torch.Tensor, y: torch.Tensor, alpha: float = 0.3):
-    """Standard mixup augmentation (Zhang et al., 2018) applied across the
-    batch dimension."""
-    if alpha <= 0:
-        return X, y
-    lam = float(np.random.beta(alpha, alpha))
-    idx = torch.randperm(X.size(0), device=X.device)
-    return lam * X + (1 - lam) * X[idx], lam * y + (1 - lam) * y[idx]

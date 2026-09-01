@@ -36,7 +36,7 @@ import torch.nn.functional as Fnn
 
 from ..config import cfg as default_cfg, set_seed
 from ..data import (load_and_preprocess, build_adjacency, make_windows,
-                     haversine_matrix, STDataset, mixup_batch, inverse_target)
+                     haversine_matrix, STDataset, inverse_target)
 from ..models import GDGRUNet
 from ..engine import train_ensemble, EarlyStopping, predict
 from ..losses import build_horizon_weights, weighted_huber_loss
@@ -215,7 +215,6 @@ def train_adaptive_ensemble(X_tr, y_tr, X_va, y_va, X_te, y_te, init_W_np,
                     X_b, y_b = X_b.to(cfg.DEVICE), y_b.to(cfg.DEVICE)
                     if cfg.NOISE_STD > 0:
                         X_b = X_b + torch.randn_like(X_b) * cfg.NOISE_STD
-                    X_b, y_b = mixup_batch(X_b, y_b, cfg.MIXUP_ALPHA)
                     A_dyn, _ = adj_module()
                     optimizer.zero_grad()
                     pred = model(X_b, A_dyn, target=y_b, teacher_forcing_ratio=tf_ratio)

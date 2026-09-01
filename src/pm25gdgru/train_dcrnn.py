@@ -5,7 +5,7 @@ windows and can be paired directly against GD-GRU in the significance
 suite (``significance.py``). The only architectural difference from
 GD-GRU is the diffusion operator (bidirectional random-walk vs. Chebyshev
 polynomial) -- the training discipline (optimizer, scheduler, early
-stopping, noise, mixup, teacher-forcing schedule, loss) is identical.
+stopping, noise, teacher-forcing schedule, loss) is identical.
 
 Usage
 -----

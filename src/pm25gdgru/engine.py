@@ -21,7 +21,7 @@ import torch.nn.functional as F
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from .config import Config, set_seed
-from .data import STDataset, mixup_batch, inverse_target
+from .data import STDataset, inverse_target
 from .losses import build_horizon_weights, weighted_huber_loss
 from .metrics import compute_metrics
 
@@ -115,7 +115,6 @@ def train_one_seed(model_ctor, model_kwargs: dict, X_tr, y_tr, X_va, y_va,
             y_b = y_b.to(cfg.DEVICE)
             if cfg.NOISE_STD > 0:
                 X_b = X_b + torch.randn_like(X_b) * cfg.NOISE_STD
-            X_b, y_b = mixup_batch(X_b, y_b, cfg.MIXUP_ALPHA)
             optimizer.zero_grad()
             pred = model(X_b, graph, target=y_b, teacher_forcing_ratio=tf_ratio)
             loss = weighted_huber_loss(pred, y_b, horiz_w)
