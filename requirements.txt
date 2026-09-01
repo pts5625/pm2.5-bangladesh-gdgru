@@ -1,0 +1,24 @@
+# Core
+numpy>=1.24
+pandas>=1.5
+scipy>=1.10
+
+# Deep learning
+torch>=2.0
+
+# Classical ML baselines
+scikit-learn>=1.3
+xgboost>=2.0
+
+# Statistics (Benjamini-Hochberg / Bonferroni correction)
+statsmodels>=0.14
+
+# Explainability
+shap>=0.44
+
+# Plotting
+matplotlib>=3.7
+seaborn>=0.12
+
+# Utilities
+tqdm>=4.65
